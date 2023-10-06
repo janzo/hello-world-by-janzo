@@ -1,7 +1,5 @@
 <template>
-        <div class="jnzwrap">
-            <DoughnutChart :chartOptions="DoughnutChartOptions" :chartData="CountriesPerCurrenciesDataSet" />
-        </div>
+    <DoughnutChart  :titleText="'Countries Per Currencies'" :chartData="CountriesPerCurrenciesDataSet" />
 </template>
 <script>
 
@@ -15,18 +13,19 @@ export default{
         },
     },
     computed:{
+
         CountriesPerCurrenciesDataSet() {
-                let curre =this.groupCurrencies
-                return {
-                    labels: Object.keys(curre),
-                    datasets: [
-                        {
-                        backgroundColor: ['#155263', '#ff6f3c', '#ff9a3c', '#ffc93c', '#e7eaf6', '#a2a8d3', '#38598b', '#113f67'],
-                        data: Object.values(curre)
-                        }
-                    ]
-                };
-            },
+            let curre =this.groupCurrencies
+            return {
+                labels: Object.keys(curre),
+                datasets: [
+                    {
+                    data: Object.values(curre)
+                    }
+                ]
+            };
+        },
+
         groupCurrencies() {
             let currenciesCount=this.CurrenciesWithCountries
             for (const currencyCode in currenciesCount) {
@@ -42,7 +41,8 @@ export default{
                     return acc;
                 }, {});
             return sortedCurrencies;
-            },
+        },
+
         CurrenciesWithCountries() {
             let currenciesCount = {};
             this.countries.forEach(country => {
@@ -61,20 +61,7 @@ export default{
         },
 
     },
-    data (){
-      return{
-        DoughnutChartOptions: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Countries per currencies'
-                }
-            }
-        },
-      }
-    }
+    data (){return{}}
 
 };
 

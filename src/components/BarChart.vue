@@ -1,9 +1,8 @@
 <template>
-  <div>
-
+  <div class="jnzwrap">
     <Bar
-    :chart-options="chartOptions"
-    :chart-data="chartData"
+    :chart-options="CchartOptions"
+    :chart-data="CchartData"
     :chart-id="chartId"
     :dataset-id-key="datasetIdKey"
     :plugins="plugins"
@@ -16,21 +15,6 @@
   </template>
   
   <script>
-  // import { Bar } from 'vue-chartjs/legacy'
-  
-  // import {
-  //   Chart as ChartJS,
-  //   Title,
-  //   Tooltip,
-  //   Legend,
-  //   BarElement,
-  //   CategoryScale,
-  //   LinearScale
-  // } from 'chart.js'
-  
-  // ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-
-
   import { Bar } from './chartLib';
   
   export default {
@@ -40,8 +24,36 @@
     },
     props: {
       chartOptions:{
-        type:Object
+        type:Object,
+        default: ()=>{
+          return{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: false,
+                    text: 'titleText assente'
+                }
+            }
+          }
+        }
       },
+
+
+      palette:{
+        type: Array,
+        default: ()=>{
+          // return ['#260c1a', '#f05d23', '#c5d86d', '#f7f7f2', '#f23557', '#f0d43a', '#22b2da', '#3b4a6b']
+          return ['#f05d23']
+        } 
+      },
+
+      titleText: {
+        type: String,
+        default: 'Doughnut-chart'
+      },
+
+
       chartData:{
         type:Object
       },
@@ -74,6 +86,37 @@
         default: () => []
       }
     },
+
+    computed: {
+
+      CchartOptions(){
+        return {
+          ...this.chartOptions,
+          plugins: {
+            ...this.chartOptions.plugins,
+            title: {
+              ...this.chartOptions.plugins.title,
+              text: this.titleText,
+              display: this.titleText?true:false
+            },
+          },
+        };
+      },
+
+      CchartData(){
+        return {
+            ...this.chartData,
+            datasets: this.chartData.datasets.map((dataset) => {
+            return {
+              ...dataset,
+              backgroundColor: this.palette,
+            };
+          }),
+        };
+      }
+    },
+
+
     data() {
       return {
 

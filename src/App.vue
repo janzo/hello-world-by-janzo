@@ -35,7 +35,7 @@
           <b-icon icon="circle-notch" variant="primary" font-scale="3" animation="spin"></b-icon>
           <p>Loading, please wait...</p>
         </div>
-        <JsonPretty :data="users"></JsonPretty>
+        <!-- <JsonPretty :data="users"></JsonPretty> -->
       </div>
     </b-container>
   </div>
