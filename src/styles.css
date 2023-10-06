@@ -1,0 +1,54 @@
+
+#main_container {
+    margin-top: 100px; 
+  }
+  body {
+    background-image: url('./assets/map.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+  }
+
+  .jnzwrap,
+  .modal-dialog,
+  .modal-content,
+  .custom-pagination .page-item.active .page-link,
+  .custom-pagination .page-link
+  {
+    background-color: antiquewhite !important;
+  }
+  input{
+    background-color: cornsilk !important;
+  }
+
+  .jnzwrap{
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .modal-dialog,
+  .modal-content
+  {
+    border-radius: 5% !important;
+  }
+ 
+  .img-flag{
+    max-height: 250px;
+    height: unset !important;
+    max-height: 300px !important;
+  }
+
+.custom-pagination .page-item.active .page-link,
+.custom-pagination .page-link {
+  border-color: #ccc !important;
+  color: #333 !important;
+}
+
+.custom-pagination .page-link:hover {
+  background-color: #ffeeab !important;
+  color: #333 !important;
+}
+.custom-pagination{
+  margin-top: 20px;
+}
