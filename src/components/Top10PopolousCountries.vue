@@ -1,5 +1,5 @@
 <template>
-    <BarChart :titleText="'Top 10 populous countries'" :chartOptions="barChartOptions" :chartData="Top10PopolousCountriesDataset" />
+    <BarChart :palette="palette" :titleText="'Top 10 populous countries'" :chartOptions="barChartOptions" :chartData="Top10PopolousCountriesDataset" />
 </template>
 <script>
 
@@ -42,9 +42,15 @@ export default{
         }
 
     },
-    data (){return{}}
+    data (){
+        return{
+            palette: ['#f05d23'],
+        } 
+      },
+    }
 
-};
+
+
 </script>
 <style scoped>
 </style>
