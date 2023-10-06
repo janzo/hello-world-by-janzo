@@ -35,6 +35,7 @@
           <b-icon icon="circle-notch" variant="primary" font-scale="3" animation="spin"></b-icon>
           <p>Loading, please wait...</p>
         </div>
+        <JsonPretty :data="users"></JsonPretty>
       </div>
     </b-container>
   </div>
@@ -47,6 +48,7 @@ import topMenu from './components/topMenu.vue'
 import accountComponent from './components/AccountComponent.vue'
 
 import userManagement from './userManagement.js';
+// import JsonPretty from './components/jsonPretty.vue';
 
 export default {
   name: 'App',
@@ -54,8 +56,9 @@ export default {
     topMenu,
     accountComponent,
     CountriesTable,
-    analyticsPage
-  },
+    analyticsPage,
+    // JsonPretty
+},
   data() {
     return {
       ...userManagement.data,
