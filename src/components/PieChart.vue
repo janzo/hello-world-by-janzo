@@ -31,19 +31,10 @@
 },
     props: {
       ...Commons.props,
-      palette:{
-        type: Array,
-        default: ()=>{
-          // return ['#155263', '#ff6f3c', '#ff9a3c', '#ffc93c', '#e7eaf6', '#a2a8d3', '#38598b', '#113f67']
-          return ['#260c1a', '#f05d23', '#c5d86d', '#f7f7f2', '#f23557', '#f0d43a', '#22b2da', '#3b4a6b']
-        } 
-      },
-
         titleText: {
           type: String,
           default: 'pie-chart'
         },
-
 
       chartId: {
         type: String,
